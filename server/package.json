@@ -1,0 +1,20 @@
+{
+  "name": "@doce/server",
+  "version": "1.0.0",
+  "main": ".",
+  "directories": {
+    "lib": ".",
+    "test": "test/",
+    "config": "config/"
+  },
+  "scripts": {
+    "test": "yarn run eslint && yarn run jest",
+    "jest": "jest  --forceExit"
+  },
+  "dependencies": {
+    "feathers-mongodb": "^5.0.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}

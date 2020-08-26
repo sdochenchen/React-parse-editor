@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<title>WebSocket Test</title>
+<script language="javascript" type="text/javascript">
+
+  let wsUri = 'ws://localhost:8080/'
+  let output, websocket
+
+  const APP = 'test'
+  const SESSION = 'test_user_session'
+  const CHANNEL = 'test_channel'
+
+  function init() {
+    output = document.getElementById('output')
+    testWebSocket()
+  }
+
+  function getRequestId() {
+    let d = new Date()
+    return d.getTime()
+  }
+
+  function testWebSocket() {
+    websocket = new WebSocket(wsUri)
+    websocket.onopen = function(evt) {
+      onOpen(evt)
+    }
+    websocket.onclose = function(evt) {
+      onClose(evt)
+    }
+    websocket.onmessage = function(evt) {
+      onMessage(evt)
+    }
+    websocket.onerror = function(evt) {
+      onError(evt)
+    }
+  }
+
+  function onOpen(evt) {
+    writeToScreen('CONNECTED')
+    doSend({
+      op: 'connect',
+      applicationId: APP,
+      sessionToken: SESSION,
+    })
+  }
+
+  function onClose(evt) {
+    writeToScreen('DISCONNECTED')
+  }
+
+  function onMessage(evt) {
+    writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data + '</span>')
+    // websocket.close()
+    const { op, clientId, subscriptionId, requestId } = JSON.parse(evt.data)
+    if (op === 'connected') {
+      doSend({
+        op: 'subscribe',
+        sessionToken: SESSION,
+        requestId: getRequestId(),
+        query: {
+          className: 'test',
+          where: {},
+          fields: ['a'],
+        },
+      })
+    } else if (op === 'subscribed') {
+      doSend({
+        op: 'unsubscribe',
+        requestId: getRequestId(),
+        subscriptionId,
+      })
+    }
+  }
+
+  function onError(evt) {
+    writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data)
+  }
+
+  function doSend(message) {
+    let data = JSON.stringify(message)
+    writeToScreen('SENT: ' + data)
+    websocket.send(data)
+  }
+
+  function writeToScreen(message) {
+    var pre = document.createElement('p')
+    pre.style.wordWrap = 'break-word'
+    pre.innerHTML = message
+    output.appendChild(pre)
+  }
+
+  window.addEventListener('load', init, false)
+
+</script>
+
+<h2>WebSocket Test</h2>
+
+<div id="output"></div>

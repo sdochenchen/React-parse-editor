@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "client",
+    "target": "ES6",
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "client"
+  ],
+  "exclude": [
+    "build",
+    "node_modules",
+    "dist",
+    "logs"
+  ]
+}

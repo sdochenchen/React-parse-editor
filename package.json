@@ -1,0 +1,92 @@
+{
+  "name": "doc-editor",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "@babel/runtime": "^7.6.0",
+    "@feathersjs/authentication": "^4.3.0",
+    "@feathersjs/authentication-client": "^4.3.2",
+    "@feathersjs/authentication-local": "^4.3.0",
+    "@feathersjs/authentication-oauth": "^4.3.0",
+    "@feathersjs/configuration": "^4.3.0",
+    "@feathersjs/errors": "^4.3.0",
+    "@feathersjs/express": "^4.3.0",
+    "@feathersjs/feathers": "^4.3.2",
+    "@feathersjs/socketio": "^4.3.0",
+    "@feathersjs/socketio-client": "^4.3.2",
+    "@material-ui/core": "^4.3.1",
+    "@material-ui/icons": "^4.2.1",
+    "@material-ui/styles": "^4.3.0",
+    "codemirror": "^5.48.2",
+    "collections": "^5.1.9",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "feathers-mongodb": "^5.0.0",
+    "graphql": "^14.4.2",
+    "helmet": "^3.20.0",
+    "history": "^4.9.0",
+    "mini-create-react-context": "^0.3.2",
+    "mongodb": "^3.3.1",
+    "mongodb-core": "^3.2.7",
+    "mui-datatables": "^2.11.1",
+    "notistack": "^0.9.0",
+    "parse": "^2.7.1",
+    "path-to-regexp": "^3.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "redux": "^4.0.4",
+    "resolve-pathname": "^3.0.0",
+    "serve-favicon": "^2.5.0",
+    "socket.io-client": "^2.2.0",
+    "tiny-invariant": "^1.0.6",
+    "uuid": "^3.3.3",
+    "value-equal": "^1.0.1",
+    "webpack-dev-server": "^3.8.1",
+    "winston": "^3.0.0"
+  },
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack",
+    "test": "jest",
+    "storybook": "start-storybook",
+    "server": "nodemon ./server/index.js"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.6.0",
+    "@storybook/react": "^5.1.10",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-relay": "^2.0.0-rc.2",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "jest": "^24.9.0",
+    "merge-deep": "^3.0.2",
+    "nodemon": "^1.19.1",
+    "typescript": "^3.5.3",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.8"
+  }
+}

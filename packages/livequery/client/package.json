@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "description": "",
+  "main": "livequery.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+  },
+  "dependencies": {
+    "bson": "^4.0.2",
+    "collections": "^5.1.9"
+  },
+  "optionalDependencies": {
+    "react": "^16.9.0"
+  }
+}
